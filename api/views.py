@@ -35,9 +35,26 @@ class GetOnlyPdf(RetrieveAPIView):
 def practise_detail(request, id):
     practise_data = get_object_or_404(Practise, id=id)
 
+    text = f'{practise_data.author} {practise_data.theme}'
+
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    
+    text = text.lower()
+    key = 'sodiq'
+    
+    encrypted = ''.join(
+        alphabet[(alphabet.index(t) + alphabet.index(key[i % len(key)])) % len(alphabet)] 
+        if t in alphabet else t
+        for i, t in enumerate(text)
+    )
+
     context = {
         'data': practise_data,
-        'camera_pdf_url': practise_data.camera_pdf.url
+        'camera_pdf_url': practise_data.camera_pdf.url,
+        'cipher_text': encrypted
     }
 
     return render(request, 'detail.html', context)
+
+def check_file(request):
+    return render(request, 'decyrpt.html')

@@ -21,11 +21,10 @@
 
 <body>
     <div class="container py-3" id="content-to-download">
-        <h3 style="font-weight: inherit; color: #323e4f; text-align: center;">O‘ZBEKISTON RESPUBLIKASI AXBOROT
-            TEXNOLOGIYALARI VA
-            KOMMUNIKATSIYALARINI RIVOJLANTIRISH VAZIRLIGI
-            MUHAMMAD AL-XORAZMIY NOMIDAGI
-            TOSHKENT AXBOROT TEXNOLOGIYALARI UNIVERSITETI </h3>
+        <h3 style="font-weight: inherit; color: #323e4f; text-align: center;">
+            O‘zbekiston Respublikasi Raqamli texnologiyalar vazirligi<br />
+            Muhammad al-Xorazmiy nomidagi Toshkent Axborot Texnologiyalari Universiteti
+        </h3>
         <hr style="color: #0084ff; border: 2px solid;" />
         <h5>Fakultet: {{ data.faculty }}</h5>
         <div style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
@@ -123,7 +122,7 @@
                 const blob = new Blob([mergedPdfBytes], { type: "application/pdf" });
                 const link = document.createElement('a');
                 link.href = URL.createObjectURL(blob);
-                link.download = 'document_with_camera.pdf';
+                link.download = '{{cipher_text}}.pdf';
                 link.click();
 
                 downloadButton.disabled = false;
