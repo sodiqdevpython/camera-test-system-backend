@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-e5r!yur)le9l%l2zipl#a0a0dfc0@!p-re3%t_b5ua$c3$4p@g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cameratest.pythonanywhere.com']
 
 
 # Application definition
@@ -51,7 +51,9 @@ INSTALLED_APPS = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Frontend domeni
-    "http://127.0.0.1:3000"
+    "http://127.0.0.1:3000",
+    "https://tuit-student.netlify.app",
+    "https://tuit-student.onrender.com"
 ]
 
 MIDDLEWARE = [
@@ -103,7 +105,7 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },  
+    },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
