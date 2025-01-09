@@ -84,9 +84,9 @@
             // html2canvas yordamida PDF yaratish
             html2canvas(element, {
                 useCORS: true,
-                scale: 2
+                scale: 1.0 // Scale optimallashtirildi
             }).then(async function (canvas) {
-                const imgData = canvas.toDataURL('image/png');
+                const imgData = canvas.toDataURL('image/jpeg', 0.85); // JPEG format, 85% sifat
                 const pdfDoc = await PDFLib.PDFDocument.create();
 
                 // Yangi PDF sahifa yaratish
@@ -95,7 +95,7 @@
 
                 const newPage = pdfDoc.addPage([imgWidth, imgHeight]);
                 const imgBytes = await fetch(imgData).then((res) => res.arrayBuffer());
-                const img = await pdfDoc.embedPng(imgBytes);
+                const img = await pdfDoc.embedJpg(imgBytes); // PNG emas, JPEG ishlatilmoqda
 
                 newPage.drawImage(img, {
                     x: 0,
@@ -136,5 +136,3 @@
         });
     </script>
 </body>
-
-</html>
