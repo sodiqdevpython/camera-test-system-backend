@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-e5r!yur)le9l%l2zipl#a0a0dfc0@!p-re3%t_b5ua$c3$4p@g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['cameratest.pythonanywhere.com']
+ALLOWED_HOSTS = ['cameratest.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
@@ -48,6 +48,10 @@ INSTALLED_APPS = [
     'api'
 
 ]
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 50 * 1024 * 1024  # 40 MB
+FILE_UPLOAD_MAX_MEMORY_SIZE = 50 * 1024 * 1024  # 40 MB
+
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Frontend domeni
